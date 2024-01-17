@@ -3,7 +3,7 @@ package tainted.CoinCon.utils;
 public class ConversionUtils {
 
     public static void toCopper(long[] coins) {
-        coins[3] += (coins[0] * 1000) + (coins[1] * 1000) + (coins[1] * 100);
+        coins[3] += (coins[0] * 1000) + (coins[1] * 100) + (coins[2] * 10);
 
         coins[2] = 0;
         coins[1] = 0;
