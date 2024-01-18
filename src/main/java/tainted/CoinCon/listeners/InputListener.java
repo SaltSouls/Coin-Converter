@@ -17,16 +17,22 @@ public class InputListener implements ActionListener {
         return Objects.equals(type.getLabel(), name);
     }
 
-    private static long[] getCoins() {
-        TextField pIn = GUI.getPtfInput();
-        TextField gIn = GUI.getGtfInput();
-        TextField sIn = GUI.getStfInput();
-        TextField cIn = GUI.getCtfInput();
+    private static long getValue(String text) {
+        if (!text.isEmpty()) { return MathUtils.evaluate(text); }
+        else { return 0; }
+    }
 
-        long platinum = MathUtils.evaluate(pIn.getText());
-        long gold = MathUtils.evaluate(gIn.getText());
-        long silver = MathUtils.evaluate(sIn.getText());
-        long copper = MathUtils.evaluate(cIn.getText());
+    private static long[] getCoins() {
+        String pIn = GUI.getPtfInput().getText();
+        String gIn = GUI.getGtfInput().getText();
+        String sIn = GUI.getStfInput().getText();
+        String cIn = GUI.getCtfInput().getText();
+
+        long platinum = getValue(pIn);
+        long gold = getValue(gIn);
+        long silver = getValue(sIn);
+        long copper = getValue(cIn);
+
 
         return new long[]{platinum, gold, silver, copper};
     }
